@@ -53,13 +53,13 @@ Beta releases can be specified by appending `-beta` to the version, e.g.
 `1.11.10-beta`.
 
 ```bash
-#!/bin/bash
+#!/bin/sh
 # docker helper functions
 mp4split() {
   BASE_IMAGE=docker.io/unifiedstreaming/mp4split
   case $1 in
-    1.[0-9]*.[0-9]* ) IMAGE=$BASE_IMAGE:$1; shift ;;
-    * ) IMAGE=$BASE_IMAGE:latest; docker pull $IMAGE ;;
+    1.[0-9]*.[0-9]* ) IMAGE=${BASE_IMAGE}:$1; shift ;;
+    * ) IMAGE=${BASE_IMAGE}:latest; docker pull $IMAGE ;;
   esac
   docker run -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
 }
@@ -67,8 +67,8 @@ mp4split() {
 cpix_verify() {
   BASE_IMAGE=docker.io/unifiedstreaming/cpix_verify
   case $1 in
-    1.[0-9]*.[0-9]* ) IMAGE=$BASE_IMAGE:$1; shift ;;
-    * ) IMAGE=$BASE_IMAGE:latest; docker pull $IMAGE ;;
+    1.[0-9]*.[0-9]* ) IMAGE=${BASE_IMAGE}:$1; shift ;;
+    * ) IMAGE=${BASE_IMAGE}:latest; docker pull $IMAGE ;;
   esac
   docker run -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
 }
@@ -76,8 +76,8 @@ cpix_verify() {
 manifest_edit() {
   BASE_IMAGE=docker.io/unifiedstreaming/manifest_edit
   case $1 in
-    1.[0-9]*.[0-9]* ) IMAGE=$BASE_IMAGE:$1; shift ;;
-    * ) IMAGE=$BASE_IMAGE:latest; docker pull $IMAGE ;;
+    1.[0-9]*.[0-9]* ) IMAGE=${BASE_IMAGE}:$1; shift ;;
+    * ) IMAGE=${BASE_IMAGE}:latest; docker pull $IMAGE ;;
   esac
   docker run -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
 }
@@ -85,8 +85,8 @@ manifest_edit() {
 push_input_stream() {
   BASE_IMAGE=docker.io/unifiedstreaming/push_input_stream
   case $1 in
-    1.[0-9]*.[0-9]* ) IMAGE=$BASE_IMAGE:$1; shift ;;
-    * ) IMAGE=$BASE_IMAGE:latest; docker pull $IMAGE ;;
+    1.[0-9]*.[0-9]* ) IMAGE=${BASE_IMAGE}:$1; shift ;;
+    * ) IMAGE=${BASE_IMAGE}:latest; docker pull $IMAGE ;;
   esac
   docker run -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
 }
@@ -94,8 +94,8 @@ push_input_stream() {
 unified_capture() {
   BASE_IMAGE=docker.io/unifiedstreaming/unified_capture
   case $1 in
-    1.[0-9]*.[0-9]* ) IMAGE=$BASE_IMAGE:$1; shift ;;
-    * ) IMAGE=$BASE_IMAGE:latest; docker pull $IMAGE ;;
+    1.[0-9]*.[0-9]* ) IMAGE=${BASE_IMAGE}:$1; shift ;;
+    * ) IMAGE=${BASE_IMAGE}:latest; docker pull $IMAGE ;;
   esac
   docker run -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
 }
@@ -103,10 +103,9 @@ unified_capture() {
 unified_remix() {
   BASE_IMAGE=docker.io/unifiedstreaming/unified_remix
   case $1 in
-    1.[0-9]*.[0-9]* ) IMAGE=$BASE_IMAGE:$1; shift ;;
-    * ) IMAGE=$BASE_IMAGE:latest; docker pull $IMAGE ;;
+    1.[0-9]*.[0-9]* ) IMAGE=${BASE_IMAGE}:$1; shift ;;
+    * ) IMAGE=${BASE_IMAGE}:latest; docker pull $IMAGE ;;
   esac
   docker run -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
 }
-
 ```
