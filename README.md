@@ -30,8 +30,8 @@ as though they were installed.
 Note: they mount the current working directory to `/data` in the container and
 use that as the working directory.
 
-By default they will run the latest trunk build, but you can optionally pass
-a version as the first parameter, SVN commit numbers and 
+By default they will run the latest GA release, but you can optionally pass
+a version as the first parameter.
 
 For example:
 ```
