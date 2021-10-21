@@ -5,7 +5,7 @@ FROM alpine:$ALPINEVERSION
 # ARGs declared before FROM are in a different scope, so need to be stated again
 # https://docs.docker.com/engine/reference/builder/#understand-how-arg-and-from-interact
 ARG ALPINEVERSION
-ARG REPO=https://beta.apk.unified-streaming.com/alpine/
+ARG REPO=https://stable.apk.unified-streaming.com/alpine/
 ARG VERSION=1.7.32
 
 # remove expired DST root if alpine 3.8
