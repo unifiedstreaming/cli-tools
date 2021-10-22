@@ -15,4 +15,4 @@ ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 WORKDIR /data
 
-CMD []
+CMD ["push_input_stream"]

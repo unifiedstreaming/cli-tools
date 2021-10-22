@@ -13,7 +13,7 @@ fi
 
 # first arg is `-f` or `--some-option`
 if [ "${1#-}" != "$1" ]; then
-  set -- unified_remix "$@"
+  set -- unified_capture "$@"
 fi
 
 exec "$@"

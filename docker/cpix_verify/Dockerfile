@@ -15,4 +15,4 @@ ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 WORKDIR /data
 
-CMD []
+CMD ["cpix_verify"]

@@ -32,4 +32,4 @@ ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 WORKDIR /data
 
-CMD ["--show_license"]
+CMD ["mp4split", "--show_license"]

@@ -31,4 +31,4 @@ ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 WORKDIR /data
 
-CMD []
+CMD ["manifest_edit"]
