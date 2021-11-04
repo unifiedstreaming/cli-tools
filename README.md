@@ -61,7 +61,7 @@ mp4split() {
     1.[0-9]*.[0-9]* ) IMAGE=${BASE_IMAGE}:$1; shift ;;
     * ) IMAGE=${BASE_IMAGE}:latest; docker pull $IMAGE ;;
   esac
-  docker run -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
+  docker run --rm -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
 }
 
 cpix_verify() {
@@ -70,7 +70,7 @@ cpix_verify() {
     1.[0-9]*.[0-9]* ) IMAGE=${BASE_IMAGE}:$1; shift ;;
     * ) IMAGE=${BASE_IMAGE}:latest; docker pull $IMAGE ;;
   esac
-  docker run -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
+  docker run --rm -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
 }
 
 manifest_edit() {
@@ -79,7 +79,7 @@ manifest_edit() {
     1.[0-9]*.[0-9]* ) IMAGE=${BASE_IMAGE}:$1; shift ;;
     * ) IMAGE=${BASE_IMAGE}:latest; docker pull $IMAGE ;;
   esac
-  docker run -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
+  docker run --rm -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
 }
 
 push_input_stream() {
@@ -88,7 +88,7 @@ push_input_stream() {
     1.[0-9]*.[0-9]* ) IMAGE=${BASE_IMAGE}:$1; shift ;;
     * ) IMAGE=${BASE_IMAGE}:latest; docker pull $IMAGE ;;
   esac
-  docker run -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
+  docker run --rm -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
 }
 
 unified_capture() {
@@ -97,7 +97,7 @@ unified_capture() {
     1.[0-9]*.[0-9]* ) IMAGE=${BASE_IMAGE}:$1; shift ;;
     * ) IMAGE=${BASE_IMAGE}:latest; docker pull $IMAGE ;;
   esac
-  docker run -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
+  docker run --rm -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
 }
 
 unified_remix() {
@@ -106,6 +106,6 @@ unified_remix() {
     1.[0-9]*.[0-9]* ) IMAGE=${BASE_IMAGE}:$1; shift ;;
     * ) IMAGE=${BASE_IMAGE}:latest; docker pull $IMAGE ;;
   esac
-  docker run -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
+  docker run --rm -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
 }
 ```
