@@ -1,4 +1,4 @@
-ARG ALPINEVERSION=3.15
+ARG ALPINEVERSION=3.16
 
 FROM alpine:$ALPINEVERSION
 
@@ -6,7 +6,7 @@ FROM alpine:$ALPINEVERSION
 # https://docs.docker.com/engine/reference/builder/#understand-how-arg-and-from-interact
 ARG ALPINEVERSION
 ARG REPO=https://stable.apk.unified-streaming.com/alpine/
-ARG VERSION=1.11.14
+ARG VERSION=1.11.17
 
 # remove expired DST root if alpine 3.8
 RUN if [ "$ALPINEVERSION" = "3.8" ]; then sed -i '2185,2226d' /etc/ssl/cert.pem; fi
@@ -22,6 +22,7 @@ RUN apk \
     add \
         mp4split~$VERSION \
         mp4split-ffmpeg-plugins~$VERSION \
+        tini \
 &&  rm -f /var/cache/apk/*
 
 # Copy Transcoder Config for ffmpeg-usp
@@ -32,7 +33,7 @@ COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+ENTRYPOINT ["/sbin/tini", "--", "/usr/local/bin/entrypoint.sh"]
 
 WORKDIR /data
 
