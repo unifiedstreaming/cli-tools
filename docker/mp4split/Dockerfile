@@ -6,7 +6,7 @@ FROM alpine:$ALPINEVERSION
 # https://docs.docker.com/engine/reference/builder/#understand-how-arg-and-from-interact
 ARG ALPINEVERSION
 ARG REPO=https://beta.apk.unified-streaming.com/alpine/
-ARG VERSION=1.12.4
+ARG VERSION=1.12.5
 
 # remove expired DST root if alpine 3.8
 RUN if [ "$ALPINEVERSION" = "3.8" ]; then sed -i '2185,2226d' /etc/ssl/cert.pem; fi
