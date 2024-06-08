@@ -15,11 +15,6 @@ RUN apk \
     --repository $REPO/v$ALPINEVERSION \
     add \
         manifest-edit~$VERSION \
-        python3 \
-        py3-pip \
-&&  pip3 install \
-        pyyaml==5.3.1 \
-        schema==0.7.3 \
 &&  rm -f /var/cache/apk/*
 
 # Copy entrypoint script
