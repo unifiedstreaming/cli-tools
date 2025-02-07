@@ -16,6 +16,7 @@ The images get published to Docker Hub as:
 * `unifiedstreaming/mp4split`
 * `unifiedstreaming/cpix_verify`
 * `unifiedstreaming/manifest_edit`
+* `unifiedstreaming/push_input_stream`
 * `unifiedstreaming/unified_capture`
 * `unifiedstreaming/unified_remix`
 
@@ -74,6 +75,15 @@ cpix_verify() {
 
 manifest_edit() {
   BASE_IMAGE=docker.io/unifiedstreaming/manifest_edit
+  case $1 in
+    1.[0-9]*.[0-9]* ) IMAGE=${BASE_IMAGE}:$1; shift ;;
+    * ) IMAGE=${BASE_IMAGE}:latest; docker pull $IMAGE ;;
+  esac
+  docker run --rm -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
+}
+
+push_input_stream() {
+  BASE_IMAGE=docker.io/unifiedstreaming/push_input_stream
   case $1 in
     1.[0-9]*.[0-9]* ) IMAGE=${BASE_IMAGE}:$1; shift ;;
     * ) IMAGE=${BASE_IMAGE}:latest; docker pull $IMAGE ;;
