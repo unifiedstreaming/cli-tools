@@ -81,15 +81,6 @@ manifest_edit() {
   docker run --rm -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
 }
 
-push_input_stream() {
-  BASE_IMAGE=docker.io/unifiedstreaming/push_input_stream
-  case $1 in
-    1.[0-9]*.[0-9]* ) IMAGE=${BASE_IMAGE}:$1; shift ;;
-    * ) IMAGE=${BASE_IMAGE}:latest; docker pull $IMAGE ;;
-  esac
-  docker run --rm -it -e UspLicenseKey -v ${PWD}:/data --workdir /data $IMAGE "$@"
-}
-
 unified_capture() {
   BASE_IMAGE=docker.io/unifiedstreaming/unified_capture
   case $1 in
