@@ -16,7 +16,6 @@ The images get published to Docker Hub as:
 * `unifiedstreaming/mp4split`
 * `unifiedstreaming/cpix_verify`
 * `unifiedstreaming/manifest_edit`
-* `unifiedstreaming/push_input_stream`
 * `unifiedstreaming/unified_capture`
 * `unifiedstreaming/unified_remix`
 
