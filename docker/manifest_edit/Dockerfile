@@ -1,13 +1,13 @@
-ARG MP4SPLIT_IMAGE=unifiedstreaming/mp4split:1.15.21
+ARG MP4SPLIT_IMAGE=unifiedstreaming/mp4split:1.15.22
 
 FROM $MP4SPLIT_IMAGE
 
 # ARGs declared before FROM are in a different scope, so need to be stated again
 # https://docs.docker.com/engine/reference/builder/#understand-how-arg-and-from-interact
-ARG MP4SPLIT_IMAGE=unifiedstreaming/mp4split:1.15.21
+ARG MP4SPLIT_IMAGE=unifiedstreaming/mp4split:1.15.22
 ARG ALPINEVERSION=3.14
 ARG REPO=https://beta.apk.unified-streaming.com/alpine/
-ARG VERSION=1.15.21
+ARG VERSION=1.15.22
 
 # Install Manifest Edit
 RUN apk \
